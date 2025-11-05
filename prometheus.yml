@@ -1,0 +1,25 @@
+# Prometheus Application Manifest
+namespace: com.test.mymcpserver
+
+submission:
+  name: My MCP Server
+  description: A test MCP server for verifier network testing
+  publisher: Test Publisher
+  category: Utilities
+  deployment_type: global
+  repo_url: https://github.com/jneums/test
+  mcp_path: /mcp
+  why_this_app: Testing the decentralized verifier network
+  key_features:
+    - Test feature 1
+    - Test feature 2
+  tags:
+    - test
+    - mcp
+  visuals:
+    icon_url: https://example.com/icon.png
+    banner_url: https://example.com/banner.png
+    gallery_images:
+      - https://example.com/banner.png
+  git_commit: 5ae29b56318ad507b2226e8efa259e731a242d23
+  wasm_path: ./.dfx/local/canisters/my_mcp_server/my_mcp_server.wasm
