@@ -9,10 +9,13 @@ COPY mops.toml ./
 # mops.lock.
 # Note: We trick mops-cli into not downloading binaries and not compiling
 # anything. We also make it use the moc version from the base image.
+# Accept GITHUB_TOKEN as build arg to authenticate API requests
+ARG GITHUB_TOKEN
 RUN mkdir -p ~/.mops/bin \
     && ln -s /usr/local/bin/moc ~/.mops/bin/moc \
     && touch ~/.mops/bin/mo-fmt \
     && echo "persistent actor {}" >tmp.mo \
+    && ([ -n "$GITHUB_TOKEN" ] && export GITHUB_TOKEN="$GITHUB_TOKEN" || true) \
     && mops-cli build tmp.mo -- --check \
     && rm -r tmp.mo target/tmp
 
