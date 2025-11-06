@@ -14,12 +14,14 @@ services:
         MOC_VERSION: *moc
         IC_WASM_VERSION: *ic_wasm
         MOPS_CLI_VERSION: *mops-cli
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
     image: *base_name
   wasm:
     build:
       context: .
       args:
         IMAGE: *base_name
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
     volumes:
       - ./out:/project/out
     environment:

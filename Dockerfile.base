@@ -28,5 +28,7 @@ RUN if dpkg --compare-versions "${MOC_VERSION}" lt "0.9.5"; then \
     && install moc /install/bin 
 
 FROM --platform=${PLATFORM} alpine:latest
+ARG GITHUB_TOKEN
+ENV GITHUB_TOKEN=${GITHUB_TOKEN}
 RUN apk add bash
 COPY --from=build /install/bin/* /usr/local/bin/
