@@ -3,7 +3,12 @@ x-base-image:
     moc: &moc 0.16.0
     ic-wasm: &ic_wasm 0.9.3
     mops-cli: &mops-cli 0.2.1
-  name: &base_name 'ghcr.io/research-ag/motoko-build:moc-0.16.0'
+  name: &base_name 'ghcr.io/jneums/motoko-build-template:moc-0.16.0'
+
+networks:
+  default:
+    external: true
+    name: verifier-shared-network
 
 services:
   base:
@@ -14,14 +19,12 @@ services:
         MOC_VERSION: *moc
         IC_WASM_VERSION: *ic_wasm
         MOPS_CLI_VERSION: *mops-cli
-        GITHUB_TOKEN: ${GITHUB_TOKEN}
     image: *base_name
   wasm:
     build:
       context: .
       args:
         IMAGE: *base_name
-        GITHUB_TOKEN: ${GITHUB_TOKEN}
     volumes:
       - ./out:/project/out
     environment:
