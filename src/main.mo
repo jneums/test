@@ -194,7 +194,7 @@ shared ({ caller = deployer }) persistent actor class McpServer(
     serverInfo = {
       name = "full-onchain-mcp-server";
       title = "Full On-chain MCP Server";
-      version = "0.107.0";
+      version = "0.108.0";
     };
     resources = resources;
     resourceReader = func(uri) {
