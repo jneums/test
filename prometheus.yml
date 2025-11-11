@@ -19,5 +19,5 @@ submission:
     banner_url: https://example.com/banner.png
     gallery_images:
       - https://example.com/banner.png
-  git_commit: 42f58658be698e34adf96e6a5484fd47a730d10b
+  git_commit: 88f6faa234dc9d7530c3e6c034320ef8e2742f60
   wasm_path: ./out/out_Linux_x86_64.wasm
